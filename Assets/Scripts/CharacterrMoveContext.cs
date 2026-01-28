@@ -12,6 +12,7 @@ public class CharacterrMoveContext : MonoBehaviour
 {
     // temp test key
     [SerializeField] protected KeyCode testKey = KeyCode.K;
+    [SerializeField] protected KeyCode testKey2 = KeyCode.L;
 
     // Get Ref to RB to move player
     protected Rigidbody rb = null;
@@ -32,8 +33,12 @@ public class CharacterrMoveContext : MonoBehaviour
 
 
 
-    // test on update to remove later
-    protected virtual void Update()
+    void Awake()
+    {
+        
+    }
+
+    void Start()
     {
         
     }
@@ -49,27 +54,49 @@ public class CharacterrMoveContext : MonoBehaviour
 
         // freeze rotation
         rb.freezeRotation = true;
+
+        // create states
+        walkingMoveState = new WalkingMoveState(this);
+        runningMoveState = new RunningMoveState(this);
+        // set starting state
+        currentMoveState = walkingMoveState;
     }
 
-    
+    protected virtual void Update()
+    {
+        //
+        currentMoveState.OnUpdate();
+        
+        // test switching to running
+        if (Input.GetKeyDown(testKey))
+        {
+            currentMoveState.ToRunning();
+        }
+        // test switching back to walking
+        else if (Input.GetKeyDown(testKey2))
+        {
+            currentMoveState.ToWalking();
+        }
+    }
 
     // move every fixed update frame
     protected virtual void FixedUpdate()
     {
-
-        MoveCharacter();
-        
+        currentMoveState.OnFixedUpdate();        
     }
 
+    
 
-    // Move the player method
-    protected virtual void MoveCharacter()
-    {
-        rb.AddForce(icp.MovDir * 50, ForceMode.Force);
-    }
+
+    
 
     // Accessors and Mutators
     public CharacterMoveState CurrentMoveState { get { return currentMoveState; } set { currentMoveState = value; } }
     public CharacterMoveState WalkingMoveState { get { return walkingMoveState; } }
     public CharacterMoveState RunningMoveState { get { return runningMoveState; } }
+
+    // access to rb
+    public Rigidbody RB { get { return rb; } }
+    // access to mov dir
+    public Vector3 MovDir { get { return icp.MovDir; } }
 }

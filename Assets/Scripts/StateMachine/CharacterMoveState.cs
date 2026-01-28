@@ -25,6 +25,24 @@ public class CharacterMoveState
         moveContext.CurrentMoveState = moveContext.RunningMoveState;
     }
 
+    public virtual void OnUpdate()
+    {
+        // add running specific update code here
+    }
+
+    // done on fixed update
+    public virtual void OnFixedUpdate()
+    {
+        MoveCharacter();
+        // add running specific fixed update code here
+    }
+
+    public virtual void MoveCharacter()
+    {
+        // add running specific enter code here
+        moveContext.RB.AddForce(moveContext.MovDir * 50, ForceMode.Force);
+    }
+
     // Constructor
     // assign context state belongs to
     public CharacterMoveState(CharacterrMoveContext aContext)
