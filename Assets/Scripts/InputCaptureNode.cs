@@ -9,13 +9,21 @@ using UnityEngine.InputSystem;
 // 1/20/2026
 // CIS 414 Lesson
 
+public enum MoveStateType
+{
+    Idle,
+    Walking,
+    Running,
+    Jumping
+}
+
 public class InputCaptureNode : MonoBehaviour
 {
     // Add Vars for colletion and storing values
     // stored direction a character should move
     protected Vector3 movDir = Vector3.zero;
-    
 
+    
 
     // Recieves input from outside the class
     public virtual void RecieveMoveDir(InputAction.CallbackContext aCon)
