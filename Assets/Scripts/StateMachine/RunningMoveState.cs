@@ -21,6 +21,7 @@ public class RunningMoveState : CharacterMoveState
     {
         // already in running state
     }
+    
 
     // methods to call from context
     // done on update
