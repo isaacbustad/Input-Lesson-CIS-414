@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 196a79cde056b5f47b8f5ce70c29f048, type: 3}
   m_Name: WalkStateParam
   m_EditorClassIdentifier: 
-  acceleration: 20
+  acceleration: 20.4
   maxSpeed: 4
