@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 1846906390}
   - component: {fileID: 1846906393}
   m_Layer: 9
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,6 +685,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3acc0b26912008040ab40d429a762b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testKey: 107
+  testKey2: 108
+  runningStateParam: {fileID: 11400000, guid: 36697c971ef71cf419d7674648b7ed5d, type: 2}
+  walkingStateParam: {fileID: 11400000, guid: 18a1257809d67b0488389bac16243525, type: 2}
 --- !u!54 &1846906391
 Rigidbody:
   m_ObjectHideFlags: 0

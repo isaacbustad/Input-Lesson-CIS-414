@@ -39,8 +39,13 @@ public class RunningMoveState : CharacterMoveState
 
     public override void MoveCharacter()
     {
-        // add running specific enter code here
-        moveContext.RB.AddForce(moveContext.MovDir * 50, ForceMode.Force);
+        if (moveContext.RB.velocity.magnitude < moveContext.RunningStateParam.MaxSpeed)
+        {
+            // add running specific enter code here
+        moveContext.RB.AddForce(moveContext.MovDir * moveContext.RunningStateParam.Acceleration, ForceMode.Force);
+        }
+        
+        base.MoveCharacter();
     }
 
 

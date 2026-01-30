@@ -31,6 +31,10 @@ public class CharacterrMoveContext : MonoBehaviour
     protected CharacterMoveState walkingMoveState = null;
     protected CharacterMoveState runningMoveState = null;
 
+    // refference movestateparam scriptable object
+    [SerializeField] protected MoveStateParam runningStateParam = null;
+    [SerializeField] protected MoveStateParam walkingStateParam = null;
+
 
 
     void Awake()
@@ -94,6 +98,11 @@ public class CharacterrMoveContext : MonoBehaviour
     public CharacterMoveState CurrentMoveState { get { return currentMoveState; } set { currentMoveState = value; } }
     public CharacterMoveState WalkingMoveState { get { return walkingMoveState; } }
     public CharacterMoveState RunningMoveState { get { return runningMoveState; } }
+
+
+    // access move state params
+    public MoveStateParam RunningStateParam { get { return runningStateParam; } }
+    public MoveStateParam WalkingStateParam { get { return walkingStateParam; } }
 
     // access to rb
     public Rigidbody RB { get { return rb; } }

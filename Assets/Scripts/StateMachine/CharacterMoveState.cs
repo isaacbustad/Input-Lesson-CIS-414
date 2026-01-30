@@ -39,8 +39,8 @@ public class CharacterMoveState
 
     public virtual void MoveCharacter()
     {
-        // add running specific enter code here
-        moveContext.RB.AddForce(moveContext.MovDir * 50, ForceMode.Force);
+        // clamp to world speed
+        moveContext.RB.velocity.LimitToWorldVelocity();
     }
 
     // Constructor
