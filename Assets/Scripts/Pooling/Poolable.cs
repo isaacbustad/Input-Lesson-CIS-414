@@ -16,7 +16,14 @@ public class Poolable : MonoBehaviour
     public virtual void PoolSelf()
     {
         pool.AddToPool(this);
+        gameObject.SetActive(false);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        PoolSelf();
+    }
+    
 
     public virtual void Use(Transform aTF)
     {

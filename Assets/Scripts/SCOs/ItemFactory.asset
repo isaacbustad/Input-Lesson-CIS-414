@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d600b520d4d039541b4ae32fbf9685cb, type: 3}
   m_Name: ItemFactory
   m_EditorClassIdentifier: 
-  factoryItem: {fileID: 4442056971189657676, guid: 0e7b6482b0c5a274a81c1c16fa640b4e, type: 3}
+  factoryItem: {fileID: 1970451523575581556, guid: 164b08b686525a04fa72927327c2438d, type: 3}
